@@ -1,0 +1,16 @@
+body {
+    background-image: url('/centro.jpg');
+    background-size: cover; /* Tamaño del 50% del ancho original y altura automática */
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+  
+  .button-blue {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Ajusta el valor para redondear más o menos las esquinas */
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

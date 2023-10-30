@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UsuarioService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mp.ar.Usuarios.service</a>
+</div>
+
+<h1>Coverage Summary for Class: UsuarioService (com.mp.ar.Usuarios.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UsuarioService</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.mp.ar.Usuarios.service;
+&nbsp;
+&nbsp;import com.mp.ar.Usuarios.entity.Usuario;
+&nbsp;import com.mp.ar.Usuarios.repository.IUsuarioRepository;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+<b class="nc">&nbsp;@Service</b>
+<b class="nc">&nbsp;public class UsuarioService implements IUsuarioService{</b>
+&nbsp;    @Autowired
+&nbsp;    private IUsuarioRepository usuRepo;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public List&lt;Usuario&gt; listOfUsuarios() {
+<b class="nc">&nbsp;        return usuRepo.findAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Usuario createUsuario(Usuario usu) {
+<b class="nc">&nbsp;        return usuRepo.save(usu);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String deleteUsuario(Integer idUsuario) {
+<b class="nc">&nbsp;        usuRepo.deleteById(idUsuario);</b>
+<b class="nc">&nbsp;        return &quot;User has been deleted succesfully&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String editUsuario(Integer idUsuario, Usuario usuEdit) {
+<b class="nc">&nbsp;        Usuario usuario= usuRepo.findById(idUsuario).orElse(null);</b>
+<b class="nc">&nbsp;        assert usuario != null;</b>
+&nbsp;
+<b class="nc">&nbsp;        usuario.setName(usuEdit.getName());</b>
+<b class="nc">&nbsp;        usuario.setSurname(usuEdit.getSurname());</b>
+<b class="nc">&nbsp;        usuario.setEmail(usuEdit.getEmail());</b>
+<b class="nc">&nbsp;        usuario.setPassword(usuEdit.getPassword());</b>
+<b class="nc">&nbsp;        usuario.setPhone(usuEdit.getPhone());</b>
+&nbsp;
+<b class="nc">&nbsp;        usuRepo.save(usuario);</b>
+&nbsp;
+<b class="nc">&nbsp;        return &quot;User has been edited succesfully&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Usuario searchUsuario(Integer idUsuaio) {
+<b class="nc">&nbsp;        return usuRepo.findById(idUsuaio).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Usuario searchUsuarioByEmail(String email) {
+<b class="nc">&nbsp;        return usuRepo.findByEmail(email);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-26 11:13</div>
+</div>
+</body>
+</html>
