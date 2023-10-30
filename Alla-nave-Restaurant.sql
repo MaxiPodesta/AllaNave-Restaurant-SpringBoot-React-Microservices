@@ -1,1 +1,0 @@
-SELECT * FROM usuarios_alla_nave.usuario;
