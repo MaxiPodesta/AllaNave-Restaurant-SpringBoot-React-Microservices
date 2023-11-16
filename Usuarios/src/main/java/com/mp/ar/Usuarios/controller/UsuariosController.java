@@ -28,6 +28,7 @@ public class UsuariosController {
 
 
 
+
     @GetMapping("/usuarios")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Usuario> getAllUsuarios(){//list all the users

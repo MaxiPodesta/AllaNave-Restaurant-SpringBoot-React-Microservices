@@ -2,13 +2,14 @@ package com.mp.ar.Usuarios.service;
 
 import com.mp.ar.Usuarios.entity.Usuario;
 import com.mp.ar.Usuarios.repository.IUsuarioRepository;
+import com.mp.ar.Usuarios.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UsuarioService implements IUsuarioService{
+public class UsuarioService implements IUsuarioService {
 
     @Autowired
     private IUsuarioRepository usuRepo;//Injection of the repository
@@ -53,6 +54,6 @@ public class UsuarioService implements IUsuarioService{
     @Override
     public Usuario searchUsuarioByEmail(String email) {//search user by the email using the method declared in the repository
 
-        return usuRepo.findByEmail(email);
+        return usuRepo.findByEmail(email).orElse(null);
     }
 }
